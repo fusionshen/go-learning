@@ -138,7 +138,7 @@
       * go get -v -u github.com/XXX/XXX就是获取第三方库的命令行方式，全局使用，go会自动将其安装到工作目录的相应目录。
 
    4. 初次写helloworld会提示安装gocode插件安装，点击安装会一直报错，解决方案如下：
-      ```
+      ```bash
       gocode:
       Error: Command failed: /c/go/bin/go get -u -v github.com/mdempsky/gocode
 github.com/mdempsky/gocode (download)
@@ -149,22 +149,23 @@ package golang.org/x/tools/go/gcexportdata: unrecognized import path "golang.org
       * 请确保自己正在科学上网。
       * 即使是科学上网也会提示上述错误，总结说来是因为本机没有golang.org工具源码。
          1. git-bash创建目录$GOPATH/src/golang.org/x，并切换到该目录
-            ```
+            ```bash
             export GOPATH=$(go env GOPATH)
             mkdir -p $GOPATH/src/golang.org/x/
             cd $GOPATH/src/golang.org/x/
             ```
+            
          2. 克隆golang.org工具源码
             如果不克隆的话，go get -u -v golang.org/xxx肯定是timeout的，所以只能先把它们下载到本地src/golang.org/x/tools。
-            ```
+            ```bash
             git clone https://github.com/golang/tools.git
             git clone https://github.com/golang/net.git
             git clone https://github.com/golang/lint.git
             ```
          3. 通过tree值可查看到golang.org中的三个工具包
-
+      
    5. 开始安装VSCode依赖的几款工具，包括上面提到的gocode，如果失败多试几次，成功后src下的目录结构就如同tree相似
-      ```
+      ```bash
       go get -v github.com/ramya-rao-a/go-outline
       go get -v github.com/acroca/go-symbols
       go get -v github.com/mdempsky/gocode
@@ -181,7 +182,7 @@ package golang.org/x/tools/go/gcexportdata: unrecognized import path "golang.org
       ```
       
    6. 安装工具，执行成功后就是tree中的bin目录结构了
-      ```
+      ```bash
       go install github.com/ramya-rao-a/go-outline
       go install github.com/acroca/go-symbols
       go install github.com/mdempsky/gocode
@@ -222,9 +223,9 @@ package golang.org/x/tools/go/gcexportdata: unrecognized import path "golang.org
       | impl          | 新建接口           | https://github.com/josharian/impl                            |
       | gotype-live   | 类型诊断           | https://github.com/tylerb/gotype-live                        |
       | gotests       | 单元测试           | https://github.com/cweill/gotests/                           |
-      | go-langserver | 语言服务           | https://github.com/sourcegraph/go-langserver                 |
+    | go-langserver | 语言服务           | https://github.com/sourcegraph/go-langserver                 |
       | filstruct     | 结构体成员默认值   | https://github.com/davidrjenni/reftools/tree/master/cmd/fillstruct |
-
+  
    7. 调试
       如上图工具介绍可知，dlv是调试的工具，支持单步调试的功能，经本机测试确实能够实现，由此可知，vsc就是利用第三方工具手动组装成IDE。
       ```
@@ -232,7 +233,7 @@ package golang.org/x/tools/go/gcexportdata: unrecognized import path "golang.org
       ```
    8. 工作区设置
       * .vscode/settings.json
-         ```
+         ```json
          {
           
             "files.autoSave": "onFocusChange",
@@ -256,11 +257,11 @@ package golang.org/x/tools/go/gcexportdata: unrecognized import path "golang.org
             "go.goroot": "C:\\Go",
           
             "go.gopath": "D:\\go-work"
-
+  
          }
          ```
       * .vscode/launch.json
-         ```
+         ```json
          {
             // Use IntelliSense to learn about possible attributes.
             // Hover to view descriptions of existing attributes.
