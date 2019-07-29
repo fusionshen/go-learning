@@ -17,7 +17,7 @@
       * 记住要重启机器！
       * 还需要在工作目录中手建src文件夹，这里会存放所有代码，bin和pkg在某些操作后会自动生成。
         
-         ```
+         ```bash
          $ tree -a -L 4
 .
 |-- .vscode
@@ -124,8 +124,8 @@
           |       |-- net
           |       `-- tools
           `-- sourcegraph.com
-            `-- sqs
-            `-- goreturns
+                `-- sqs
+                `-- goreturns
 
         62 directories, 44 files
         ```
